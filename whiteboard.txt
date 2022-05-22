@@ -1,0 +1,37 @@
+//4 Unique String non-recursive
+
+function uniqueString(string) {
+  let uniqString = true;
+  for (i=0; i<string.length; i++) {
+    for (j = i + 1; j<string.length; j++) 
+      {
+        if(string[i] === string[j]) {
+          uniqString = false;
+          console.log("Not unique");
+          return uniqString;
+        } else {}
+      }
+  }
+  return uniqString;
+}
+
+// Recursive version
+
+function uniqueStringRecursive(string, i = 0, uniqString = "true") {
+  if(i >= string.length) {
+    return uniqString;
+  }
+  else {
+        if(string.indexOf(string[i]) !== i) {
+          uniqString = false;
+          console.log("Not unique");
+          return uniqString;
+        } else {}
+    i++;
+    return uniqueStringRecursive(string, i);
+  }
+}
+
+let stringTest = "copyright";
+let newString = uniqueStringRecursive(stringTest);
+console.log(newString);
